@@ -12,7 +12,7 @@ spec:
       labels:
         app: eurekaserver
     spec:
-      containers:
+    - containers:
         name: eurekaserver
         image: gayatri01/eurekaserver
         ports:
