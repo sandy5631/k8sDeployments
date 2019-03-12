@@ -1,0 +1,26 @@
+apiVersion: apps/v1beta1 # for versions before 1.8.0 use apps/v1beta1
+kind: Deployment
+metadata:
+  name: zuulserver
+spec:
+  selector:
+    matchLabels:
+      app: zuulserver
+  replicas: 1 # tells deployment to run 3 pods matching the template
+  template: # create pods using pod definition in this template
+    metadata:
+      labels:
+        app: zuulserver
+    spec:
+      containers:
+      - env:
+         - name: eureka_host
+           value: "eurekaserver"
+         - name: eureka_port
+           value: "8761"
+        name: zuulserver
+        image: gayatri01/zuulserver
+        ports:
+        - containerPort: 1234
+        
+
