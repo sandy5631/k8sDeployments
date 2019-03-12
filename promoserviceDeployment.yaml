@@ -1,0 +1,41 @@
+apiVersion: apps/v1beta1 # for versions before 1.8.0 use apps/v1beta1
+kind: Deployment
+metadata:
+  name: promoservice
+spec:
+  selector:
+    matchLabels:
+      app: promoservice
+  replicas: 1 # tells deployment to run 3 pods matching the template
+  template: # create pods using pod definition in this template
+    metadata:
+      labels:
+        app: promoservice
+    spec:
+      containers:
+      - env:
+        - name: eureka_host
+          value: "eurekaserver"
+        - name: eureka_port
+          value: "8761"
+        - name: CONFIG_URI
+          value: "http://configserver:8888"
+        - name: RABBITMQ_HOST
+          value: "rabbitmq"
+        name: promoservice
+        image: gayatri01/promoservice
+        ports:
+        - containerPort: 8023
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: promoservice
+  labels:
+    app: promoservice
+spec:
+  type: ClusterIP
+  ports:
+  - port: 8023
+  selector:
+    app: promoservice
