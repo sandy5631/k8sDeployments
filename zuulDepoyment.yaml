@@ -30,7 +30,7 @@ metadata:
   labels:
     app: zuulserver
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   ports:
   - port: 1234
   selector:
