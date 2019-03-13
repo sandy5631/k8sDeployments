@@ -14,6 +14,9 @@ spec:
     spec:
       containers:
       - name: configserver
+        env:
+        - name: CONFIG_REPO_URI
+          value: "https://SandySandeep@bitbucket.org/SandySandeep/configfilesk8s.git"
         image: gayatri01/configserver
         ports:
         - containerPort: 8888
