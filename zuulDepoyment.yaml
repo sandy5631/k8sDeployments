@@ -33,5 +33,6 @@ spec:
   type: LoadBalancer
   ports:
   - port: 1234
+    targetPort: 1234
   selector:
     app: zuulserver
