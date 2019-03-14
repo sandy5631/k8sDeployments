@@ -34,6 +34,6 @@ spec:
   ports:
   - port: 1234
     targetPort: 1234
-    protocol: tcp
+    protocol: TCP
   selector:
     app: zuulserver
