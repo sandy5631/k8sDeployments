@@ -13,7 +13,12 @@ spec:
         app: eurekaserver
     spec:
       containers:
-      - name: eurekaserver
+      - env:
+        - name: eureka_host
+          value: "eurekaserver"
+        - name: eureka_port
+          value: "8761"
+        name: eurekaserver
         image: gayatri01/eurekaserver
         ports:
         - containerPort: 8761
