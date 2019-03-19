@@ -19,7 +19,7 @@ spec:
         - name: eureka_port
           value: "8761"
         name: clientui
-        image: gayatri01/ekartclientgui
+        image: gayatri01/ekartclientui
         ports:
         - containerPort: 4201
 ---
