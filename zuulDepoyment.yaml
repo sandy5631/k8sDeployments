@@ -19,7 +19,7 @@ spec:
         - name: eureka_port
           value: "8761"
         name: zuulserver
-        image: gayatri01/zuulserverfinal
+        image: gayatri01/zuulserver2732
         ports:
         - containerPort: 1234
 ---
